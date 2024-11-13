@@ -1,0 +1,7 @@
+flask
+flask-sqlalchemy
+flask-login
+flask-cors
+requests
+python-dotenv
+openai==0.28 

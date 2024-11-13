@@ -1,0 +1,473 @@
+:root {
+  --primary-red: #ff4444;
+  --dark-bg: #1a1a1a;
+  --darker-bg: #121212;
+  --light-text: #ffffff;
+  --gray-text: #888888;
+  --card-bg: #242424;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+}
+
+.App {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* 认证表单样式 */
+.auth-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-form input {
+  padding: 12px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: var(--darker-bg);
+  color: var(--light-text);
+  font-size: 16px;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--primary-red);
+}
+
+.auth-form button {
+  padding: 12px;
+  background-color: var(--primary-red);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.auth-form button:hover {
+  background-color: #ff2020;
+}
+
+.auth-switch {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.auth-switch button {
+  background: none;
+  border: none;
+  color: var(--primary-red);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+/* 电影列表样式 */
+.movie-list {
+  padding: 20px;
+}
+
+.search-bar {
+  margin-bottom: 30px;
+  display: flex;
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: var(--darker-bg);
+  color: var(--light-text);
+  font-size: 16px;
+}
+
+.search-bar button {
+  padding: 12px 24px;
+  background-color: var(--primary-red);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+.movie-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 375px;
+  object-fit: cover;
+}
+
+.movie-card-content {
+  padding: 15px;
+}
+
+.movie-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: var(--light-text);
+}
+
+.movie-card p {
+  color: var(--gray-text);
+  font-size: 14px;
+  margin: 0 0 15px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.movie-card button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--primary-red);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.movie-card button:hover {
+  background-color: #ff2020;
+}
+
+/* 在现有样式后添加 */
+
+.nav-bar {
+  background-color: var(--card-bg);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-red);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--light-text);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 68, 68, 0.1);
+}
+
+.logout-btn {
+  background-color: transparent;
+  border: 1px solid var(--primary-red);
+  color: var(--primary-red);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: var(--primary-red);
+  color: white;
+}
+
+.favorites-container {
+  padding: 0 2rem;
+}
+
+.favorites-container h2 {
+  color: var(--light-text);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--gray-text);
+}
+
+.auth-switch-btn {
+  display: block;
+  margin: 1rem auto;
+  background: none;
+  border: none;
+  color: var(--primary-red);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.recommendations-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.recommendations-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.recommendations-header h2 {
+  margin: 0;
+  color: var(--light-text);
+}
+
+.empty-recommendations {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.empty-recommendations p {
+  color: var(--gray-text);
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.loading-container p {
+  color: var(--gray-text);
+  margin-top: 1rem;
+}
+
+.get-recommendations-btn {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  background-color: var(--primary-red);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.refresh-btn {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  background-color: transparent;
+  color: var(--primary-red);
+  border: 1px solid var(--primary-red);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.refresh-btn:hover {
+  background-color: var(--primary-red);
+  color: white;
+}
+
+.recommendations-list {
+  margin-top: 2rem;
+}
+
+.recommendations-list pre {
+  background-color: var(--darker-bg);
+  padding: 1.5rem;
+  border-radius: 4px;
+  color: var(--light-text);
+  white-space: pre-wrap;
+  margin-bottom: 1.5rem;
+}
+
+.error-message {
+  color: var(--primary-red);
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* 在现有样式中添加 */
+.section-title {
+  text-align: center;
+  color: var(--light-text);
+  margin: 2rem 0;
+  font-size: 1.8rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--gray-text);
+  font-size: 1.2rem;
+}
+
+/* 在现有样式中添加 */
+.remove-favorite-btn {
+  background-color: transparent !important;
+  border: 2px solid var(--primary-red) !important;
+  color: var(--primary-red) !important;
+}
+
+.remove-favorite-btn:hover {
+  background-color: var(--primary-red) !important;
+  color: white !important;
+}
+
+.no-favorites {
+  text-align: center;
+  color: var(--gray-text);
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+/* 电影详情页样式 */
+.movie-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  color: var(--light-text);
+}
+
+.movie-details-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.movie-poster img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.movie-info h1 {
+  margin: 0 0 1rem 0;
+  color: var(--light-text);
+}
+
+.movie-meta {
+  color: var(--gray-text);
+  margin-bottom: 2rem;
+}
+
+.movie-overview {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.movie-cast {
+  margin-top: 2rem;
+}
+
+.movie-cast h3 {
+  margin-bottom: 1rem;
+}
+
+.cast-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.cast-item {
+  text-align: center;
+}
+
+.cast-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.cast-item .actor-name {
+  font-weight: bold;
+}
+
+.cast-item .character-name {
+  color: var(--gray-text);
+  font-size: 0.9rem;
+}
+
+/* 在现有样式中添加 */
+.clickable-poster {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.clickable-poster:hover {
+  transform: scale(1.02);
+}
+
+.clickable-title {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.clickable-title:hover {
+  color: var(--primary-red);
+}
+
+.movie-poster {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+} 
